@@ -15,4 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/customers', 'CustomerController@getCustomers');
+Route::get('/customers', 'CustomerController@showCustomers');
+
+Route::get('/customers/{id}', 'CustomerController@showIdCustomer');
+
+Route::get('/customers/{id}/address', 'CustomerController@showCustomerAddress');
