@@ -9,11 +9,6 @@ class Customer extends Model
     public $incrementing = false;
     public $timestamps = false;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'id',
         'email',
@@ -29,4 +24,8 @@ class Customer extends Model
         'customer_extra_text',
         'customer_due_date_period',
     ];
+    public function companies() {
+
+        return $this->hasOne(Customer::class);
+    }
 }

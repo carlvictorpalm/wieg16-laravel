@@ -21,6 +21,7 @@ class CreateCustomersTable extends Migration
             $table->tinyInteger('gender')->nullable();
             $table->tinyInteger('customer_activated')->nullable();
             $table->tinyInteger('group_id')->nullable();
+            $table->unsignedBigInteger('company_id')->nullable();
             $table->string('customer_company')->nullable();
             $table->integer('default_billing')->nullable();
             $table->integer('default_shipping')->nullable();
