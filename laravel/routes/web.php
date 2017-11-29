@@ -21,7 +21,6 @@ Route::get('/customers/{id}', 'CustomerController@showIdCustomer');
 
 Route::get('/companies', 'CustomerController@showCompanies');
 
-
 Route::get('/customers/bycompany/{id}', 'CustomerController@showCompaniesId');
 
 Route::get('/customers/{id}/address', 'CustomerController@showCustomerAddress');

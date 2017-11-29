@@ -33,6 +33,7 @@ class CustomerController extends Controller
     public function showCompanies(){
         return response()->json(Company::select('company_name')->get());
     }
+
     public function showCompaniesId($id){
         $company = Customer::where('company_id', $id)->get();
         if (count($company) > 0) {
