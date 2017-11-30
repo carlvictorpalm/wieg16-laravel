@@ -2,6 +2,8 @@
 
 namespace App\Console\Commands;
 
+
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Console\Command;
 
 class GetWebPage extends Command
@@ -11,7 +13,7 @@ class GetWebPage extends Command
      *
      * @var string
      */
-    protected $signature = 'get:getwebpage {url} {file_name}';
+    protected $signature = 'get:webpage {url} {file_name}';
 
     /**
      * The console command description.
@@ -37,6 +39,19 @@ class GetWebPage extends Command
      */
     public function handle()
     {
-        //
+        $url = $this->argument('url');
+        $file = $this->argument('file_name');
+
+        $this->info("initializing curl..");
+        $curl = curl_init($url);
+        curl_setopt($curl, CURLOPT_HEADER, 0);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+
+        $this->info("sending request to: " . $url);
+        $response = curl_exec($curl);
+        Storage::put($file, $response);
+        $this->info("File stored at:" . $file);
+        /*var_dump($url, $file);*/
+
     }
 }
