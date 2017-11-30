@@ -34,12 +34,6 @@ class CustomerController extends Controller
         return response()->json(Company::select('company_name')->get());
     }
 
-    public function showCompaniesId($id){
-        $company = Customer::where('company_id', $id)->get();
-        if (count($company) > 0) {
-            return response()->json($company);
-        } else {
-            return response()->json(["message" => "Customer not found"], 404);
-        }
-    }
+    pu
+
 }

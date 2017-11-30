@@ -11,9 +11,5 @@ class Company extends Model
         'id',
         'company_name'
     ];
-/*
-    public function customer(){
-        return $this->belongsTo(Customer::class);
-    }
-*/
+
 }

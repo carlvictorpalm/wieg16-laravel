@@ -25,7 +25,6 @@ class Customer extends Model
         'customer_due_date_period',
     ];
     public function companies() {
-
         return $this->hasOne(Customer::class);
     }
 }

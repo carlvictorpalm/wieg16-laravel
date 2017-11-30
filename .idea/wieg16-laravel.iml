@@ -19,5 +19,6 @@
     <orderEntry type="module" module-name="wieg16-api" />
     <orderEntry type="module" module-name="wieg16-curl" />
     <orderEntry type="module" module-name="wieg16-http" />
+    <orderEntry type="module" module-name="bootstrapstarter" />
   </component>
 </module>

@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../examensarbete/wp-content/themes/bootstrapstarter/.idea/bootstrapstarter.iml" filepath="$PROJECT_DIR$/../examensarbete/wp-content/themes/bootstrapstarter/.idea/bootstrapstarter.iml" />
       <module fileurl="file://$PROJECT_DIR$/../wieg16-api/.idea/wieg16-api.iml" filepath="$PROJECT_DIR$/../wieg16-api/.idea/wieg16-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/../wieg16-curl/.idea/wieg16-curl.iml" filepath="$PROJECT_DIR$/../wieg16-curl/.idea/wieg16-curl.iml" />
       <module fileurl="file://$PROJECT_DIR$/../wieg16-http/.idea/wieg16-http.iml" filepath="$PROJECT_DIR$/../wieg16-http/.idea/wieg16-http.iml" />
