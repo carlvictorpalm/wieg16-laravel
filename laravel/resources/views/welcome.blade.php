@@ -7,11 +7,18 @@
 
         <title>Laravel</title>
 
+
+        <!-- HTTPS required. HTTP will give a 403 forbidden response -->
+        <script src="https://sdk.accountkit.com/en_US/sdk.js"></script>
+
+
+
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
         <style>
+
             html, body {
                 background-color: #fff;
                 color: #636b6f;
@@ -81,6 +88,16 @@
                 <div class="title m-b-md">
                     VICTORPALM
                 </div>
+
+
+                <input value="+1" id="country_code" />
+                <input placeholder="phone number" id="phone_number"/>
+                <button onclick="smsLogin();">Login via SMS</button>
+                <div>OR</div>
+                <input placeholder="email" id="email"/>
+                <button onclick="emailLogin();">Login via Email</button>
+
+
 
                 <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>

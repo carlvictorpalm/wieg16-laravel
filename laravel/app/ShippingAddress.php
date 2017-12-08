@@ -28,6 +28,6 @@ class ShippingAddress extends Model
     ];
 
     public function order() {
-        return $this->belongsTo(Invoice::class);
+        return $this->belongsTo(Order::class);
     }
 }

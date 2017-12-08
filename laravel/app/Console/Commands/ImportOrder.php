@@ -3,20 +3,20 @@
 namespace App\Console\Commands;
 
 use App\BillingAddress;
-use App\Invoice;
-use App\Item;
+use App\Order;
+use App\OrderItem;
 use App\ShippingAddress;
 use DB;
 use Illuminate\Console\Command;
 
-class ImportInvoices extends Command
+class ImportOrder extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'import:invoices';
+    protected $signature = 'import:orders';
 
     /**
      * The console command description.
@@ -68,7 +68,7 @@ class ImportInvoices extends Command
 
             if ($order['status'] != 'processing') continue;
 
-            $dbInvoice = Invoice::findOrNew($order['id']);
+            $dbInvoice = Order::findOrNew($order['id']);
             $dbInvoice->fill($order)->save();
 
             if (isset($order['shipping_address']) && is_array($order['shipping_address'])){
@@ -80,11 +80,9 @@ class ImportInvoices extends Command
                 $dbBilling->fill($order['billing_address'])->save();
             }
             foreach ($order['items'] as $item){
-                $orderItem = Item::findOrNew($item['id']);
+                $orderItem = OrderItem::findOrNew($item['id']);
                 $orderItem->fill($item)->save();
             }
         }
-
-
     }
 }

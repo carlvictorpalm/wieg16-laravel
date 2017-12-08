@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Invoice extends Model
+class Order extends Model
 {
     protected $primaryKey = 'id';
     public $incrementing = false;
@@ -28,14 +28,13 @@ class Invoice extends Model
         'shipping_amount',
         'shipping_tax_amount',
         'shipping_description',
-
         ];
 
     public function customer() {
         return $this->belongsTo(Customer::class);
     }
     public function orderItem() {
-        return$this->hasMany(Item::class);
+        return$this->hasMany(OrderItem::class);
     }
     public function billingAddress() {
         return $this->hasOne(BillingAddress::class);

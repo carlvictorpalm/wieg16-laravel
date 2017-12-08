@@ -75,20 +75,15 @@ class ImportCustomers extends Command
                 $address->fill($customer['address'])->save();
             }
         }
-
         $companies = array_unique($companies);
-
         foreach ($companies as $company) {
             $customerCompany = Company::where('company_name', '=', $company)->first();
             if ($customerCompany == null)
                 $customerCompany = new Company();
-
             $customerCompany->fill(['company_name' => $company])->save();
-
             DB::table('customers')
                 ->where('customer_company', '=', $customerCompany->company_name)
                 ->update(['company_id' => $customerCompany->id]);
         }
-
     }
 }

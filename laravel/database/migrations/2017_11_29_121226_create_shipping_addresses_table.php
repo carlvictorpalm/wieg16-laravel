@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBillingAddressTable extends Migration
+class CreateShippingAddressesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateBillingAddressTable extends Migration
      */
     public function up()
     {
-        Schema::create('billing_addresses', function (Blueprint $table) {
-            $table->unsignedBigInteger('id')->primary();
+        Schema::create('shipping_addresses', function (Blueprint $table) {
+            $table->unsignedBigInteger('id')->primay();
             $table->unsignedBigInteger('customer_id')->nullable();
             $table->unsignedBigInteger('customer_address_id')->nullable();
             $table->string('email')->nullable();
@@ -39,6 +39,6 @@ class CreateBillingAddressTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('billing_addresses');
+        Schema::dropIfExists('shipping_addresses');
     }
 }

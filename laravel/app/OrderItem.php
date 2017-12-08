@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Item extends Model
+class OrderItem extends Model
 {
     protected $primaryKey = 'id';
     public $incrementing = false;
@@ -29,6 +29,6 @@ class Item extends Model
     ];
 
     public function item() {
-        return $this->belongsToMany(Invoice::class);
+        return $this->belongsToMany(Order::class);
     }
 }

@@ -24,10 +24,11 @@ class Customer extends Model
         'customer_extra_text',
         'customer_due_date_period',
     ];
-    public function companies() {
-        return $this->hasOne(Company::class);
-    }
+
     public function group() {
-        return $this->hasOne(Group::class);
+        return $this->belongsTo(Group::class);
+    }
+    public function order() {
+        return $this->hasMany(Order::class);
     }
 }

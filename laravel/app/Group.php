@@ -19,7 +19,7 @@ class Group extends Model
         return $this->hasMany(GroupPrice::class);
     }
     public function customer() {
-        return $this->belongsTo(Customer::class);
+        return $this->hasMany(Customer::class);
     }
 }
 
