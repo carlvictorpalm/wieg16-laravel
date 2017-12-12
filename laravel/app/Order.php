@@ -37,9 +37,9 @@ class Order extends Model
         return$this->hasMany(OrderItem::class);
     }
     public function billingAddress() {
-        return $this->hasOne(BillingAddress::class);
+        return $this->hasOne(BillingAddress::class, 'billing_address_id', 'id');
     }
     public function shippingAddress() {
-        return $this->hasOne(ShippingAddress::class);
+        return $this->hasOne(ShippingAddress::class,'shipping_address_id', 'id');
     }
 }

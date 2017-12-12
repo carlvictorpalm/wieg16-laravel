@@ -23,12 +23,16 @@ class Customer extends Model
         'is_active',
         'customer_extra_text',
         'customer_due_date_period',
+        'company_id'
     ];
 
-    public function group() {
-        return $this->belongsTo(Group::class);
+    public function address() {
+        return $this->hasOne(Address::class);
     }
-    public function order() {
+    public function orders() {
         return $this->hasMany(Order::class);
+    }
+    public function company() {
+        return $this->belongsTo(Customer::class);
     }
 }

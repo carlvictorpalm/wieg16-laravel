@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class GroupPrice extends Model
 {
-    protected $primaryKey = ['group_id', 'product_id'];
+    //protected $primaryKey = ['group_id', 'product_id'];
     public $incrementing = true;
     public $timestamps = false;
 

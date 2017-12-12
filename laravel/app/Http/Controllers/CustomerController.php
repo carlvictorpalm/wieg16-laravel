@@ -34,6 +34,4 @@ class CustomerController extends Controller
         return response()->json(Company::select('company_name')->get());
     }
 
-    pu
-
 }

@@ -11,5 +11,8 @@ class Company extends Model
         'id',
         'company_name'
     ];
+    public function customers() {
+        return $this->hasMany(Customer::class);
+    }
 
 }
