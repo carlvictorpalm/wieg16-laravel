@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Group;
 use Illuminate\Http\Request;
+use View;
 
 class GroupController extends Controller
 {
@@ -14,7 +15,9 @@ class GroupController extends Controller
      */
     public function index()
     {
-        //
+        $groups = Group::all();
+        return view('groups.index',compact('groups'))
+            ->with('i', (request()->input('page', 1)));
     }
 
     /**
@@ -24,7 +27,7 @@ class GroupController extends Controller
      */
     public function create()
     {
-        //
+        return view('groups.create');
     }
 
     /**
@@ -35,7 +38,10 @@ class GroupController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $group = new Group();
+        $postData = $request->all();
+        $group->fill($postData)->save();
+        return response()->redirectToAction('GroupController@create');
     }
 
     /**
@@ -44,9 +50,10 @@ class GroupController extends Controller
      * @param  \App\Group  $group
      * @return \Illuminate\Http\Response
      */
-    public function show(Group $group)
+    public function show($id)
     {
-        //
+        $group = Group::find($id);
+        return view('groups.show',compact('group'));
     }
 
     /**
@@ -55,9 +62,10 @@ class GroupController extends Controller
      * @param  \App\Group  $group
      * @return \Illuminate\Http\Response
      */
-    public function edit(Group $group)
+    public function edit($id)
     {
-        //
+        $group = Group::find($id);
+        return view('groups.edit', compact('group'));
     }
 
     /**
@@ -67,9 +75,13 @@ class GroupController extends Controller
      * @param  \App\Group  $group
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Group $group)
+    public function update(Request $request, $id)
     {
-        //
+        $group = Group::find($id);
+        $group->fill($request->all())->save();
+        \Session::flash('message', 'Successfully updated group.');
+        // Alternatively??
+        return response()->redirectToAction('GroupController@edit', ['id' => $id]);
     }
 
     /**
@@ -78,8 +90,10 @@ class GroupController extends Controller
      * @param  \App\Group  $group
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Group $group)
+    public function destroy($id)
     {
-        //
+        $group = Group::find($id);
+        $group->delete();
+        \Session::flash('message', 'Group successfully deleted.');
     }
 }

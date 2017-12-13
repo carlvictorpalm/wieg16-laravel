@@ -84,7 +84,6 @@ class ImportProducts extends Command
                 $prices['product_id'] = $product['entity_id'];
                 //dd($prices);
                 GroupPrice::create($prices);
-
             }
         }
         foreach ($products['groups'] as $group) {
