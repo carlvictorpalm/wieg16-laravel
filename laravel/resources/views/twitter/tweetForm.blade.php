@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Images</title>
+    <title>Laravel</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -19,16 +19,6 @@
             font-weight: 100;
             height: 100vh;
             margin: 0;
-        }
-
-        .full-height {
-            height: 100vh;
-        }
-
-        .flex-center {
-            align-items: center;
-            display: flex;
-            justify-content: center;
         }
 
         .position-ref {
@@ -66,30 +56,30 @@
 </head>
 <body>
 <div class="flex-center position-ref full-height">
-    @if (Route::has('login'))
-        <div class="top-right links">
-            @auth
-                <a href="{{ url('/home') }}">Home</a>
-                @else
-                    <a href="{{ route('login') }}">Login</a>
-                    <a href="{{ route('register') }}">Register</a>
-                    @endauth
-        </div>
-    @endif
 
     <div class="content">
-        <div class="title m-b-md" style="margin-top: 850px;">
-            Images
+        <div class="title m-b-md">
+            Twitter
         </div>
-
-        @foreach($images as $image)
-            <img src="{{ $image->url }}" alt="" width="293px" height="293px">
-        <!-- <p>{{ $image->text }}</p> -->
-        @endforeach
-
-
+        <form action="{{ action('TweetController@tweetForm') }}" method="get">
+            {{ csrf_field() }}
+            Search:
+            <input type="text" name="search" value="" placeholder="Search..."><br>
+            <input type="submit">
+        </form>
+        <table>
+            <tr>
+                <th>Words</th>
+                <th>count</th>
+            </tr>
+            @foreach($twitter_tweets as $tweet=>$value)
+                <tr>
+                    <td>{{$tweet}}</td>
+                    <td>{{$value}}</td>
+                </tr>
+            @endforeach
+        </table>
     </div>
 </div>
-
 </body>
 </html>

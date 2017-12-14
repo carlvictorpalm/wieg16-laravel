@@ -59,9 +59,10 @@ class ImportTweets extends Command
         $err = curl_error($curl);
         curl_close($curl);
 
-
         foreach ($response['statuses'] as $tweet) {
             $this->info("Inserting/updating tweet with id: " . $tweet['id']);
+            $tweet['text'] = preg_replace('/[[:^print:]]/', '', $tweet['text']);
+
             $dbTweet = Tweet::findOrNew($tweet['id']);
             $dbTweet->fill(['id' => $tweet['id'], 'text' => $tweet['text']])->save();
         }

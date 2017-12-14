@@ -27,6 +27,11 @@ Route::resource('groups', 'GroupController');
 
 Route::get('/instagram', 'InstagramImagesController@index');
 
+Route::get('/tweets', 'TweetController@showTweets');
+Route::get('/count', 'TweetController@callTweetCount');
+Route::get('/exclude', 'TweetController@exclude');
+Route::get('/tweetForm', 'TweetController@tweetForm');
+
 
 Route::get('/klarna', 'KlarnaController@index');
 Route::get('/klarna-confirmation', 'KlarnaController@confirmation');

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Images</title>
+    <title>Laravel</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -66,30 +66,24 @@
 </head>
 <body>
 <div class="flex-center position-ref full-height">
-    @if (Route::has('login'))
-        <div class="top-right links">
-            @auth
-                <a href="{{ url('/home') }}">Home</a>
-                @else
-                    <a href="{{ route('login') }}">Login</a>
-                    <a href="{{ route('register') }}">Register</a>
-                    @endauth
-        </div>
-    @endif
 
     <div class="content">
-        <div class="title m-b-md" style="margin-top: 850px;">
-            Images
+        <div class="title m-b-md">
+            Tweets
         </div>
-
-        @foreach($images as $image)
-            <img src="{{ $image->url }}" alt="" width="293px" height="293px">
-        <!-- <p>{{ $image->text }}</p> -->
-        @endforeach
-
-
+        <table>
+            <tr>
+                <th>Skapad</th>
+                <th>Tweet</th>
+            </tr>
+            @foreach($twitter_tweets as $tweet)
+                <tr>
+                    <td>{{ $tweet->created_at }}</td>
+                    <td>{{ $tweet->text }}</td>
+                </tr>
+            @endforeach
+        </table>
     </div>
 </div>
-
 </body>
 </html>
