@@ -76,6 +76,7 @@ class ImportCustomers extends Command
                 $address->fill($customer['address'])->save();
             }
         }
+
         $companies = array_unique($companies);
         foreach ($companies as $company) {
             $customerCompany = Company::where('company_name', '=', $company)->first();

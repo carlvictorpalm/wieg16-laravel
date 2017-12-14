@@ -25,6 +25,8 @@ Route::resource('products', 'ProductController');
 Route::resource('prices', 'GroupPriceController');
 Route::resource('groups', 'GroupController');
 
+Route::get('/instagram', 'InstagramImagesController@index');
+
 
 Route::get('/klarna', 'KlarnaController@index');
 Route::get('/klarna-confirmation', 'KlarnaController@confirmation');
